@@ -42,34 +42,41 @@ const programs = [
 
 export function ProgramsSection() {
     return (
-        <SectionWrapper id="programmes" className="bg-light-grey">
-            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">Programmes at PureGym Aldgate.</h2>
-                <p className="text-lg text-gray-600">Pick the coaching set up that matches your goal and schedule.</p>
+        <SectionWrapper id="programmes" className="bg-[#0a0c15]/90 border-white/10">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-3">
+                <p className="text-orange-300 uppercase tracking-[0.25em] text-xs">Programmes</p>
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-2">Programmes at PureGym Aldgate.</h2>
+                <p className="text-lg text-white/75">Pick the coaching set up that matches your goal and schedule.</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
                 {programs.map((program, index) => (
-                    <Card key={index} className="flex flex-col h-full border-0 shadow-md hover:shadow-lg transition-shadow duration-300">
-                        <div className="mb-6">
-                            <h3 className="text-xl font-bold text-charcoal mb-2">{program.title}</h3>
-                            <p className="text-electric-blue font-medium text-sm mb-4">{program.tagline}</p>
-                            <p className="text-gray-600 text-sm leading-relaxed">{program.description}</p>
+                    <Card
+                        key={index}
+                        className="flex flex-col h-full border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-black/40"
+                    >
+                        <div className="mb-6 space-y-3">
+                            <h3 className="text-xl font-bold text-white">{program.title}</h3>
+                            <p className="text-orange-200 font-semibold text-sm">{program.tagline}</p>
+                            <p className="text-white/70 text-sm leading-relaxed">{program.description}</p>
                         </div>
 
                         <ul className="space-y-3 mb-8 flex-grow">
                             {program.bullets.map((bullet, i) => (
-                                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                                    <svg className="w-5 h-5 text-electric-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
+                                <li key={i} className="flex items-start gap-3 text-sm text-white/80">
+                                    <span className="mt-0.5 h-6 w-6 rounded-full bg-white/10 text-orange-300 flex items-center justify-center shadow-inner shadow-orange-500/20">
+                                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </span>
                                     <span>{bullet}</span>
                                 </li>
                             ))}
                         </ul>
 
-                        <div className="pt-6 border-t border-gray-100 mt-auto">
-                            <p className="text-sm font-medium text-dark-grey">{program.price}</p>
+                        <div className="pt-6 border-t border-white/10 mt-auto flex items-center justify-between text-sm text-white">
+                            <p className="font-semibold">{program.price}</p>
+                            <span className="rounded-full bg-orange-500/10 border border-orange-400/30 px-3 py-1 text-orange-200">{index === 0 ? "Popular" : "Focused"}</span>
                         </div>
                     </Card>
                 ))}

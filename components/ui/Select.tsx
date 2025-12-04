@@ -5,30 +5,22 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     error?: boolean;
 }
 
-const Select = forwardRef<HTMLSelectElement, SelectProps>(
-    ({ className, children, error, ...props }, ref) => {
-        return (
-            <div className="relative">
-                <select
-                    ref={ref}
-                    className={cn(
-                        "flex h-11 w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 text-sm ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-                        error && "border-soft-red focus-visible:ring-soft-red",
-                        className
-                    )}
-                    {...props}
-                >
-                    {children}
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
-                    <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                    </svg>
-                </div>
-            </div>
-        );
-    }
-);
+const Select = forwardRef<HTMLSelectElement, SelectProps>(({ className, error, children, ...props }, ref) => {
+    return (
+        <select
+            ref={ref}
+            className={cn(
+                "flex h-11 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm text-white",
+                "ring-offset-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2",
+                error && "border-soft-red focus-visible:ring-soft-red",
+                className
+            )}
+            {...props}
+        >
+            {children}
+        </select>
+    );
+});
 
 Select.displayName = "Select";
 

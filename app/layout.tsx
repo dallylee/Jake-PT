@@ -5,10 +5,12 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Jake Turner PT | Personal Trainer at PureGym London Aldgate",
-  description: "1 to 1 personal training at PureGym London Aldgate for busy young professionals. 8 week shred, strength and muscle coaching, and gym confidence kickstart with serious, trackable results.",
+  description:
+    "1 to 1 personal training at PureGym London Aldgate for busy young professionals. 8 week shred, strength and muscle coaching, and gym confidence kickstart with serious, trackable results.",
   openGraph: {
     title: "Jake Turner PT | Personal Trainer at PureGym London Aldgate",
-    description: "1 to 1 personal training at PureGym London Aldgate for busy young professionals. 8 week shred, strength and muscle coaching, and gym confidence kickstart with serious, trackable results.",
+    description:
+      "1 to 1 personal training at PureGym London Aldgate for busy young professionals. 8 week shred, strength and muscle coaching, and gym confidence kickstart with serious, trackable results.",
     type: "website",
     // images: ["/og-image.jpg"],
   },
@@ -44,9 +46,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className="bg-transparent text-white">
         <Header />
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen">
           {children}
         </main>
         <Footer />

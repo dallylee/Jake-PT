@@ -31,22 +31,23 @@ export function FaqSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <SectionWrapper id="faq" className="bg-white">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">FAQ.</h2>
+        <SectionWrapper id="faq" className="bg-[#0b0c18]/90 border-white/10">
+            <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <p className="text-orange-300 uppercase tracking-[0.25em] text-xs">FAQ</p>
+                <h2 className="text-3xl md:text-4xl font-black text-white">FAQ.</h2>
             </div>
 
             <div className="max-w-2xl mx-auto space-y-4">
                 {faqs.map((faq, index) => (
-                    <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+                    <div key={index} className="border border-white/10 rounded-xl overflow-hidden bg-white/5">
                         <button
                             onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                            className="w-full flex items-center justify-between p-4 md:p-6 text-left bg-white hover:bg-gray-50 transition-colors focus:outline-none"
+                            className="w-full flex items-center justify-between p-4 md:p-6 text-left bg-white/5 hover:bg-white/10 transition-colors focus:outline-none"
                         >
-                            <span className="font-semibold text-charcoal pr-4">{faq.question}</span>
+                            <span className="font-semibold text-white pr-4">{faq.question}</span>
                             <svg
                                 className={cn(
-                                    "w-5 h-5 text-gray-400 transition-transform duration-200 flex-shrink-0",
+                                    "w-5 h-5 text-orange-200 transition-transform duration-200 flex-shrink-0",
                                     openIndex === index ? "transform rotate-180" : ""
                                 )}
                                 fill="none"
@@ -58,11 +59,11 @@ export function FaqSection() {
                         </button>
                         <div
                             className={cn(
-                                "overflow-hidden transition-all duration-300 ease-in-out bg-gray-50",
+                                "overflow-hidden transition-all duration-300 ease-in-out bg-black/40",
                                 openIndex === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                             )}
                         >
-                            <p className="p-4 md:p-6 pt-0 text-gray-600 text-sm md:text-base leading-relaxed">
+                            <p className="p-4 md:p-6 pt-0 text-white/70 text-sm md:text-base leading-relaxed">
                                 {faq.answer}
                             </p>
                         </div>

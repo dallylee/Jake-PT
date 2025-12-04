@@ -22,28 +22,30 @@ const steps = [
 
 export function HowItWorksSection() {
     return (
-        <SectionWrapper id="how-it-works" className="bg-charcoal text-white">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">How coaching with me works.</h2>
+        <SectionWrapper id="how-it-works" className="bg-[#0a0b16]/90 border-white/10">
+            <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <p className="text-orange-300 uppercase tracking-[0.25em] text-xs">Process</p>
+                <h2 className="text-3xl md:text-4xl font-black text-white">How coaching with me works.</h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-12 relative">
-                {/* Connecting line for desktop */}
-                <div className="hidden md:block absolute top-8 left-1/6 right-1/6 h-0.5 bg-gray-700 -z-10" />
-
+            <div className="grid md:grid-cols-3 gap-10 relative">
+                <div className="hidden md:block absolute top-12 left-20 right-20 h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" aria-hidden />
                 {steps.map((step, index) => (
-                    <div key={index} className="relative flex flex-col items-center text-center">
-                        <div className="w-16 h-16 rounded-full bg-electric-blue flex items-center justify-center text-2xl font-bold mb-6 shadow-lg shadow-blue-900/20 ring-4 ring-charcoal">
-                            {step.number}
+                    <div key={index} className="relative flex flex-col items-center text-center space-y-4">
+                        <div className="relative">
+                            <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-xl" aria-hidden />
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-amber-400 flex items-center justify-center text-2xl font-bold text-black shadow-lg shadow-orange-500/40 ring-4 ring-black/60">
+                                {step.number}
+                            </div>
                         </div>
-                        <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                        <p className="text-gray-400 leading-relaxed">{step.description}</p>
+                        <h3 className="text-xl font-bold text-white">{step.title}</h3>
+                        <p className="text-white/70 leading-relaxed">{step.description}</p>
                     </div>
                 ))}
             </div>
 
-            <div className="text-center mt-16">
-                <Button asChild size="lg" className="bg-white text-charcoal hover:bg-gray-100">
+            <div className="text-center mt-14">
+                <Button asChild size="lg" className="shadow-lg shadow-orange-500/30">
                     <Link href="#apply">Apply for coaching</Link>
                 </Button>
             </div>
