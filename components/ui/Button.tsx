@@ -1,15 +1,25 @@
-import { ButtonHTMLAttributes, ElementType, ReactElement, cloneElement, forwardRef } from "react";
+import {
+    ButtonHTMLAttributes,
+    ElementType,
+    HTMLAttributes,
+    ReactElement,
+    cloneElement,
+    forwardRef,
+} from "react";
 import { cn } from "@/lib/utils";
 
-type SlotProps = { children: ReactElement; className?: string } & Record<string, unknown>;
+type SlotProps = { children: ReactElement; className?: string } & HTMLAttributes<HTMLElement>;
 
 const Slot = forwardRef<HTMLElement, SlotProps>(({ children, className, ...props }, ref) => {
-    const child = children as ReactElement<{ className?: string }>;
-    return cloneElement(child, {
-        ...props,
-        ref,
-        className: cn(className, child.props?.className),
-    });
+    const child = children as ReactElement<{ className?: string }> & { ref?: unknown };
+    return cloneElement(
+        child,
+        {
+            ...props,
+            ref,
+            className: cn(className, child.props?.className),
+        } as typeof child.props
+    );
 });
 
 Slot.displayName = "Slot";
