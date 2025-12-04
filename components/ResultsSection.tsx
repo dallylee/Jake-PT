@@ -21,33 +21,34 @@ const results = [
 
 export function ResultsSection() {
     return (
-        <SectionWrapper id="results" className="bg-white">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">Real results on the PureGym Aldgate floor.</h2>
-                <p className="text-lg text-gray-600">
+        <SectionWrapper id="results" className="bg-[#0d0f1d]/90 border-white/10">
+            <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <p className="text-orange-300 uppercase tracking-[0.25em] text-xs">Results</p>
+                <h2 className="text-3xl md:text-4xl font-black text-white">Real results on the PureGym Aldgate floor.</h2>
+                <p className="text-lg text-white/75">
                     Every client has different numbers, but the process is the same. We set a clear target, track everything and adjust as we go.
                 </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
                 {results.map((item, index) => (
-                    <Card key={index} className="overflow-hidden border-0 shadow-md">
-                        <div className="aspect-[4/3] bg-gray-100 relative">
-                            {/* Placeholder for Result Image */}
-                            <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-200">
-                                <span className="text-sm font-medium">Result: {item.name}</span>
+                    <Card key={index} className="overflow-hidden border-white/15 bg-gradient-to-b from-white/10 via-white/5 to-black/40">
+                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10">
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(249,115,22,0.18),transparent_35%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.2),transparent_40%)]" />
+                            <div className="absolute inset-0 flex items-center justify-center text-white/70 backdrop-blur-sm">
+                                <span className="text-sm font-semibold">Result: {item.name}</span>
                             </div>
                         </div>
-                        <div className="p-6">
-                            <p className="text-gray-800 font-medium leading-relaxed">
-                                <span className="font-bold text-charcoal">{item.name}</span> – {item.result}
+                        <div className="p-4 space-y-2">
+                            <p className="text-white/90 font-semibold leading-relaxed">
+                                <span className="font-bold text-white">{item.name}</span> – {item.result}
                             </p>
                         </div>
                     </Card>
                 ))}
             </div>
 
-            <p className="text-center text-xs text-gray-400 mt-8">
+            <p className="text-center text-xs text-white/50 mt-8">
                 Results shown are from real clients. Individual results will vary based on starting point and consistency.
             </p>
         </SectionWrapper>
