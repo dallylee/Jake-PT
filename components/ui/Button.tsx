@@ -1,6 +1,20 @@
-import { ButtonHTMLAttributes, forwardRef } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { ButtonHTMLAttributes, ReactElement, cloneElement, forwardRef } from "react";
 import { cn } from "@/lib/utils";
+
+const Slot = forwardRef<HTMLElement, { children: ReactElement; className?: string }>(
+    ({ children, className, ...props }, ref) => {
+        return cloneElement(
+            children as ReactElement,
+            {
+                ...(props as Record<string, unknown>),
+                ref,
+                className: cn(className, (children as { props?: { className?: string } }).props?.className),
+            } as any
+        );
+    }
+);
+
+Slot.displayName = "Slot";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: "primary" | "secondary" | "outline" | "ghost";
@@ -10,7 +24,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = "primary", size = "md", asChild = false, ...props }, ref) => {
-        const Comp = asChild ? Slot : "button";
+        const Comp = (asChild ? Slot : "button") as any;
         return (
             <Comp
                 ref={ref}
